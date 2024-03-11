@@ -1,0 +1,25 @@
+.complete-btn {
+    width: fit-content;
+    background-color: rgb(56, 56, 230);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    color: #fff;
+    padding: 0 10px;
+    margin: 5px 0;
+}
+.pending-btn {
+    background-color: rgb(203, 175, 15);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    color: #fff;
+    padding: 0 10px;
+    margin: 5px 0;
+    width: fit-content;
+
+}

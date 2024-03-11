@@ -49,11 +49,12 @@ function App() {
           <table>
             <thead>
               <tr>
-              <th>List</th>
-              <th>Status</th>
-              <th>Delete</th>
+                <th>List</th>
+                <th>Status</th>
+                <th>Delete</th>
               </tr>
             </thead>
+
             {todos.map((todo) => {
               return (
                 <ToDo
@@ -64,31 +65,33 @@ function App() {
                 />
               );
             })}
-          </table>
-          <div>
-            <button onClick={() => setTodoStatus("all")}>All</button>
-            <button onClick={() => setTodoStatus("active")}>Active</button>
-            <button onClick={() => setTodoStatus("complete")}>Complete</button>
-          </div>
 
-          {todos.some((todo) => todo.complete) ? (
-            <button onClick={removeAllCompleteTodos}>
-              Remove all complete Todos{" "}
-            </button>
-          ) : null}
-          <button
-            onClick={() => {
-              setTodos(
-                todos.map((todo) => ({
-                  ...todo,
-                  complete: toggleAllComplete,
-                }))
-              );
-              setToggleAllComplete(!toggleAllComplete);
-            }}
-          >
-            Toggle all complete : {`${toggleAllComplete}`}{" "}
-          </button>
+            <tr>
+
+              <span onClick={() => setTodoStatus("all")}>All</span>
+              <span onClick={() => setTodoStatus("active")}>Active</span>
+              <span onClick={() => setTodoStatus("complete")}>Complete</span>
+              {todos.some((todo) => todo.complete) ? (
+                <button onClick={removeAllCompleteTodos}>
+                  Remove all complete Todos{" "}
+                </button>
+              ) : null}
+              <button
+                onClick={() => {
+                  setTodos(
+                    todos.map((todo) => ({
+                      ...todo,
+                      complete: toggleAllComplete,
+                    }))
+                  );
+                  setToggleAllComplete(!toggleAllComplete);
+                }}
+              >
+                Toggle all complete : {`${toggleAllComplete}`}{" "}
+              </button>
+
+            </tr>
+          </table>
         </div>
       </div>
     </div>
