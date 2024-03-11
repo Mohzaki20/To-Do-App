@@ -9,7 +9,7 @@ function ToDoForm(props) {
       props.onSubmit({
         id: shortid.generate(),
         text: text,
-        complete: props.isComplete,
+        complete: false,
       });
       setText("");
     } else {
@@ -17,16 +17,17 @@ function ToDoForm(props) {
     }
   }
   return (
-    <div>
+    <div className="form-style">
       <form onSubmit={handelSubmit}>
         <input
           type="text"
           className="input-field"
           onChange={(e) => setText(e.target.value)}
           value={text}
+          placeholder="What would you like to do ?"
         />
         <button className="add-btn" type="submit">
-          Add To do
+          Add
         </button>
       </form>
     </div>

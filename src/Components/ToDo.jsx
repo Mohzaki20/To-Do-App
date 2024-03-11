@@ -1,17 +1,21 @@
 import React from "react";
 
 function ToDo(props) {
-    console.log();
   return (
-    <>
-      <div
+    <tbody>
+    <tr>
+      <td
         onClick={props.isComplete}
-        style={{ textDecoration: props.todo.complete ? "line-through" : "" }}
+        style={{ textDecoration: props.todo.complete ? "line-through" : "" ,cursor: "pointer"}}
       >
         {props.todo.text}
-      </div>
-      <button onClick={props.onDelete}>X</button>
-    </>
+      </td>
+      <td>{props.todo.complete ? "completed" : "pending"}</td>
+      <td>
+        <button onClick={props.onDelete}>X</button>
+      </td>
+    </tr>
+    </tbody>
   );
 }
 

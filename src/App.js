@@ -6,7 +6,7 @@ import ToDo from "./Components/ToDo";
 function App() {
   let [todos, setTodos] = useState([]);
   const [todoStatus, setTodoStatus] = useState("all");
-  const [isComplete, setIsComplete] = useState(true);
+  const [toggleAllComplete, setToggleAllComplete] = useState(true);
 
   const addTodos = (todo) => {
     setTodos([todo, ...todos]);
@@ -14,13 +14,24 @@ function App() {
   const handelDelete = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
-  const updateTodo = (id) => {
-    setTodoStatus(id);
+
+  const updateTodoStatus = (id) => {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            complete: !todo.complete,
+          };
+        } else {
+          return todo;
+        }
+      })
+    );
   };
-  const updateTodoStatus = (string) => {
-    console.log(string);
-    setIsComplete(!string)
-  }
+  const removeAllCompleteTodos = () => {
+    setTodos(todos.filter((todo) => !todo.complete));
+  };
   if (todoStatus === "active") {
     todos = todos.filter((todo) => !todo.complete);
   } else if (todoStatus === "complete") {
@@ -28,21 +39,57 @@ function App() {
   }
   return (
     <div className="App">
-      <ToDoForm onSubmit={addTodos} isComplete={isComplete}/>
-      {todos.map((todo) => {
-        return (
-          <ToDo
-            todo={todo}
-            key={todo.id}
-            onDelete={() => handelDelete(todo.id)}
-            isComplete={() => updateTodoStatus(todo.isComplete)}
-          />
-        );
-      })}
-      <div>
-        <button onClick={() => updateTodo("all")}>All</button>
-        <button onClick={() => updateTodo("active")}>Active</button>
-        <button onClick={() => updateTodo("complete")}>Complete</button>
+      <div className="container">
+        <div>
+          <h1 className="header">To-do List</h1>
+          <ToDoForm onSubmit={addTodos} />
+        </div>
+        <div className="list">
+          <h3 style={{ margin: 15 }}>To do list</h3>
+          <table>
+            <thead>
+              <tr>
+              <th>List</th>
+              <th>Status</th>
+              <th>Delete</th>
+              </tr>
+            </thead>
+            {todos.map((todo) => {
+              return (
+                <ToDo
+                  todo={todo}
+                  key={todo.id}
+                  onDelete={() => handelDelete(todo.id)}
+                  isComplete={() => updateTodoStatus(todo.id)}
+                />
+              );
+            })}
+          </table>
+          <div>
+            <button onClick={() => setTodoStatus("all")}>All</button>
+            <button onClick={() => setTodoStatus("active")}>Active</button>
+            <button onClick={() => setTodoStatus("complete")}>Complete</button>
+          </div>
+
+          {todos.some((todo) => todo.complete) ? (
+            <button onClick={removeAllCompleteTodos}>
+              Remove all complete Todos{" "}
+            </button>
+          ) : null}
+          <button
+            onClick={() => {
+              setTodos(
+                todos.map((todo) => ({
+                  ...todo,
+                  complete: toggleAllComplete,
+                }))
+              );
+              setToggleAllComplete(!toggleAllComplete);
+            }}
+          >
+            Toggle all complete : {`${toggleAllComplete}`}{" "}
+          </button>
+        </div>
       </div>
     </div>
   );
