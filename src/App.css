@@ -9,7 +9,7 @@
 .App .container {
   position: relative;
   background-color: #f7f7ff;
-  width: 500px;
+  width: 700px;
   height: 600px;
   border-radius: 20px;
   -webkit-border-radius: 20px;
@@ -114,4 +114,58 @@
 }
 .list table tr td {
   text-align: center;
+}
+.list .btns {
+  /* background-color: red; */
+  width: 300px;
+  padding: 8px;
+}
+.list .btns span {
+  width: calc(100% /3);
+  display: inline-block;
+  border-left: 1px solid #b4b2b2;
+  cursor: pointer;
+}
+
+.list .btns span:first-child {
+  border-left:none;
+
+}
+.list .remove-btn {
+  border: none;
+  background-color: #7244b3;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 2px 5px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.list .remove-btn:hover {
+  background-color: #683ea3;
+  
+}
+.list .remove-btn:disabled {
+  background-color: #bcadd3;
+  
+}
+.list .toggle-btn {
+  border: none;
+  background-color: #14c466;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 2px 5px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.list .toggle-btn:hover {
+  background-color: #0eb95e;
+  
 }

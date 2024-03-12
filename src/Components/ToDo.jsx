@@ -10,18 +10,21 @@ function ToDo(props) {
           style={{
             textDecoration: props.todo.complete ? "line-through" : "",
             cursor: "pointer",
+            maxWidth:"300px",
+            textWrap:"wrap",
+            borderBottom:"1px solid #eee"
           }}
         >
           {props.todo.text}
         </td>
-        <td>
+        <td style={{padding:8,borderBottom:"1px solid #eee"}}>
           {props.todo.complete ? (
             <span className="complete-btn">Completed</span>
           ) : (
             <span className="pending-btn">Pending</span>
           )}
         </td>
-        <td>
+        <td style={{padding:8,borderBottom:"1px solid #eee"}}>
           <span onClick={props.onDelete} style={{ cursor: "pointer" }}>
             <img src={recycle} alt="" width={20} />
           </span>
