@@ -22,8 +22,9 @@
   text-align: center;
   color: #fff;
   padding: 10px 0 60px;
-  font-weight: 500;
-  letter-spacing: 1.2px;
+  font-size: 35px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
   border-radius: 20px 20px 0 0;
   -webkit-border-radius: 20px 20px 0 0;
   -moz-border-radius: 20px 20px 0 0;
@@ -49,7 +50,7 @@
   -moz-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   -o-transform: translateX(-50%);
-  /* padding: 20px 0; */
+  padding: 30px 0;
   box-shadow: 1px 1px 15px #9e9d9d;
 }
 .App .form-style form {
@@ -61,13 +62,14 @@
   height: 100%;
 }
 .App .form-style form input {
-  width: 250px;
-  height: 30px;
+  width: 270px;
+    height: 40px;
+    font-size: 16px;
 }
 .add-btn {
   background-color: #ed6a5a;
   color: #fff;
-  padding: 3px 40px;
+  padding: 5px 50px;
   border: none;
   cursor: pointer;
   font-weight: 600;
@@ -81,9 +83,11 @@
   background-color: #ed5642;
 }
 .input-field {
+  height: 50px;
+  width: 200px;
   outline: none;
   border: none;
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid #898989;
   padding: 0 3px;
 }
 .list {
@@ -95,7 +99,6 @@
   border-radius: 10px;
   box-shadow: 1px 1px 15px #9e9d9d;
   transform: translateX(-50%);
-
 }
 
 .list table {
@@ -116,7 +119,6 @@
   text-align: center;
 }
 .list .btns {
-  /* background-color: red; */
   width: 300px;
   padding: 8px;
 }
@@ -126,10 +128,11 @@
   border-left: 1px solid #b4b2b2;
   cursor: pointer;
 }
-
+.list .btns span:hover {
+  background-color: #fafafa;
+}
 .list .btns span:first-child {
   border-left:none;
-
 }
 .list .remove-btn {
   border: none;

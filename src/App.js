@@ -32,8 +32,14 @@ function App() {
   let filteredTodos = todos;
   if (todoStatus === "active") {
     filteredTodos = todos.filter((todo) => !todo.complete);
+    if (filteredTodos.length === 0) {
+      setTodoStatus("all");
+    }
   } else if (todoStatus === "complete") {
     filteredTodos = todos.filter((todo) => todo.complete);
+    if (filteredTodos.length === 0) {
+      setTodoStatus("all");
+    }
   }
 
   return (
@@ -108,7 +114,7 @@ function App() {
                 </tr>
               </tfoot>
             </table>
-          ) : (
+          ) : todoStatus !== "complete" && "active" ? (
             <div
               style={{
                 display: "flex",
@@ -116,10 +122,10 @@ function App() {
                 flexDirection: "column",
               }}
             >
-              <h2>Write Todos Now!</h2>
+              <h2>Let's Write some To-dos Now!</h2>
               <img src={calender} alt="" width={300} />
             </div>
-          )}
+          ) : null}
         </div>
       </div>
     </div>
