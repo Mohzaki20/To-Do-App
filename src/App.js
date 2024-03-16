@@ -50,7 +50,7 @@ function App() {
           <ToDoForm onSubmit={addTodos} />
         </div>
         <div className="list">
-          <h3 style={{ margin: 15 }}>To do list</h3>
+          <h2 style={{ padding: "10px 20px" }}>To do list</h2>
           {filteredTodos.length !== 0 ? (
             <table>
               <thead>
@@ -83,7 +83,7 @@ function App() {
                         onClick={removeAllCompleteTodos}
                         className="remove-btn"
                       >
-                        Remove all complete Todos
+                        Remove all completed
                       </button>
                     ) : (
                       <button
@@ -91,7 +91,7 @@ function App() {
                         disabled
                         className="remove-btn"
                       >
-                        Remove all complete Todos
+                        Remove all completed
                       </button>
                     )}
                   </td>
@@ -108,7 +108,7 @@ function App() {
                         setToggleAllComplete(!toggleAllComplete);
                       }}
                     >
-                      Toggle all complete : {`${toggleAllComplete}`}
+                      Toggle all
                     </button>
                   </td>
                 </tr>
@@ -122,8 +122,8 @@ function App() {
                 flexDirection: "column",
               }}
             >
-              <h2>Let's Write some To-dos Now!</h2>
-              <img src={calender} alt="" width={300} />
+              <h2 className="write-todo">Let's Write some To-dos Now!</h2>
+              <img src={calender} alt=""  style={{width:"80%",maxWidth:300}}/>
             </div>
           ) : null}
         </div>

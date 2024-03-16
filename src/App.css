@@ -1,16 +1,17 @@
+body {
+  background-color: #f8f1ef;
+}
 .App {
   display: flex;
   justify-content: center;
-  background-color: #f8f1ef;
-  min-height: 100vh;
-  max-height: max-content;
   padding: 2em 0;
 }
 .App .container {
-  position: relative;
   background-color: #f7f7ff;
-  width: 700px;
-  height: 600px;
+  width: 90%;
+  max-width: 700px;
+  height: auto;
+  padding: 0 0 30px;
   border-radius: 20px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
@@ -36,14 +37,15 @@
   display: flex;
   flex-direction: column;
   height: 100px;
-  width: 90%;
+  width: 80%;
+  max-width: 630px;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
   position: absolute;
-  top: 75px;
+  top: 110px;
   left: 50%;
   transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
@@ -62,9 +64,10 @@
   height: 100%;
 }
 .App .form-style form input {
-  width: 270px;
-    height: 40px;
-    font-size: 16px;
+  max-width: 270px;
+  width: 90%;
+  height: 40px;
+  font-size: 16px;
 }
 .add-btn {
   background-color: #ed6a5a;
@@ -87,18 +90,16 @@
   width: 200px;
   outline: none;
   border: none;
-  border-bottom: 2px solid #898989;
+  border-bottom: 2px solid #c9c5c5;
   padding: 0 3px;
 }
 .list {
   background-color: #fff;
-  margin-top: 70px;
+  margin: 70px auto 0;
+  max-width: 630px;
   width: 90%;
-  position: absolute;
-  left: 50%;
   border-radius: 10px;
   box-shadow: 1px 1px 15px #9e9d9d;
-  transform: translateX(-50%);
 }
 
 .list table {
@@ -110,10 +111,6 @@
 }
 .list table thead th {
   padding: 3px;
-
-}
-.list table tr:nth-child(odd) {
-  border: 1px solid #000;
 }
 .list table tr td {
   text-align: center;
@@ -123,7 +120,7 @@
   padding: 8px;
 }
 .list .btns span {
-  width: calc(100% /3);
+  width: calc(100% / 3);
   display: inline-block;
   border-left: 1px solid #b4b2b2;
   cursor: pointer;
@@ -132,13 +129,14 @@
   background-color: #fafafa;
 }
 .list .btns span:first-child {
-  border-left:none;
+  border-left: none;
 }
 .list .remove-btn {
   border: none;
-  background-color: #7244b3;
+  background-color: #fb2626;
   color: #fff;
   cursor: pointer;
+  width: 90%;
   font-weight: 500;
   padding: 2px 5px;
   border-radius: 5px;
@@ -148,12 +146,10 @@
   -o-border-radius: 5px;
 }
 .list .remove-btn:hover {
-  background-color: #683ea3;
-  
+  background-color: #de2222;
 }
 .list .remove-btn:disabled {
-  background-color: #bcadd3;
-  
+  background-color: #fe5454;
 }
 .list .toggle-btn {
   border: none;
@@ -162,6 +158,7 @@
   font-weight: 500;
   cursor: pointer;
   padding: 2px 5px;
+  width: 90%;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -170,5 +167,30 @@
 }
 .list .toggle-btn:hover {
   background-color: #0eb95e;
-  
+}
+@media screen and (max-width: 668px) {
+  .container .write-todo {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .container .write-todo {
+    font-size: 14px;
+  }
+  .container .list {
+    font-size: 12px;
+  }
+  .list .remove-btn,
+  .list .toggle-btn {
+    font-size:10px ;
+  }
+  .btns span {
+    font-size: 10px;
+  }
+  .container .input-field::placeholder{
+    font-size: 14px;
+  }
+  .container .add-btn {
+    padding: 5px 40px;
+  }
 }
